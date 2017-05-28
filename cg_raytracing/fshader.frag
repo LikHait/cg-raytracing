@@ -7,4 +7,3 @@ void main ( void )
 {
     FragColor = vec4 ( abs(glPosition.xy), 0, 1.0);
 }
-

@@ -14,9 +14,10 @@ MainWidget::~MainWidget()
 void MainWidget::initData()
 {
     QVector3D vectdata[] = {QVector3D(-1.0f, -1.0f, 0.0f), QVector3D( 1.0f, -1.0f, 0.0f), QVector3D( 1.0f,  1.0f, 0.0f), QVector3D(-1.0f,  1.0f, 0.0f)};
+
     glGenBuffers(1, &vbo_position);
     glBindBuffer(GL_ARRAY_BUFFER,  vbo_position);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vectdata), vectdata, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 4*3*sizeof(float), vectdata, GL_STATIC_DRAW);
     glVertexAttribPointer(attribute_vpos, 3, GL_FLOAT, false, 0, 0);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -26,7 +27,7 @@ void MainWidget::initializeGL()
 {
     initializeOpenGLFunctions();
 
-    glClearColor(0, 1, 0, 1);
+    glClearColor(0, 0, 0, 1);
 
     initShaders();
 }
@@ -55,12 +56,15 @@ void MainWidget::initShaders()
 void MainWidget::resizeGL(int width, int height)
 {
    glViewport(0, 0, width, height);
+
 }
 
 void MainWidget::paintGL()
 {
-    /*
+
     glClear(GL_COLOR_BUFFER_BIT);
-    update();
-        */
+    glDrawArrays(GL_QUADS, 0, 4);
+    program.release();
+    //update();
+
 }
