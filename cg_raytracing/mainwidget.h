@@ -1,7 +1,6 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
 
-#include "geometryengine.h"
 
 #include <QWidget>
 #include <QOpenGLWidget>
@@ -33,7 +32,7 @@ protected:
 private:
     QOpenGLShaderProgram program;
     void initShaders();
-    //void initData();
+    void initData();
 
 
 //data

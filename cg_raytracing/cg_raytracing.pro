@@ -1,10 +1,10 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-05-27T14:12:01
+# Project created by QtCreator 2017-05-27T18:32:13
 #
 #-------------------------------------------------
 
-QT       += core gui opengl
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,11 +24,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwidget.cpp \
-    geometryengine.cpp
+        mainwidget.cpp
 
-HEADERS  += mainwidget.h \
-    geometryengine.h
+HEADERS  += mainwidget.h
 
 RESOURCES += \
     shaders.qrc
+
+DISTFILES +=

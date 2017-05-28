@@ -26,7 +26,7 @@ void MainWidget::initializeGL()
 {
     initializeOpenGLFunctions();
 
-    glClearColor(0, 0, 0, 1);
+    glClearColor(0, 1, 0, 1);
 
     initShaders();
 }
@@ -34,7 +34,7 @@ void MainWidget::initializeGL()
 void MainWidget::initShaders()
 {
     // Compile vertex shader
-    if (!program.addShaderFromSourceFile((QOpenGLShader::ShaderType)QOpenGLShader::Vertex, ":/vshader.vert"))
+    if (!program.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/vshader.vert"))
         close();
 
     // Compile fragment shader
@@ -45,20 +45,22 @@ void MainWidget::initShaders()
     // Link shader pipeline
     if (!program.link())
         close();
-
+    qDebug() << program.log();
     // Bind shader pipeline for use
     if (!program.bind())
         close();
+
 }
 
 void MainWidget::resizeGL(int width, int height)
 {
-    //glLoadIdentity();
-    glViewport(0, 0, width, height);
+   glViewport(0, 0, width, height);
 }
 
 void MainWidget::paintGL()
 {
+    /*
     glClear(GL_COLOR_BUFFER_BIT);
     update();
+        */
 }
