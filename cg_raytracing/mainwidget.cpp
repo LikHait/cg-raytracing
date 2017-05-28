@@ -17,9 +17,9 @@ void MainWidget::initData()
 
     glGenBuffers(1, &vbo_position);
     glBindBuffer(GL_ARRAY_BUFFER,  vbo_position);
-    glBufferData(GL_ARRAY_BUFFER, 4*3*sizeof(float), vectdata, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vectdata), vectdata, GL_STATIC_DRAW);
     glVertexAttribPointer(attribute_vpos, 3, GL_FLOAT, false, 0, 0);
-
+    glEnableVertexAttribArray(attribute_vpos);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
@@ -55,7 +55,7 @@ void MainWidget::initShaders()
 
 void MainWidget::resizeGL(int width, int height)
 {
-   glViewport(0, 0, width, height);
+    glViewport(0, 0, width, height);
 
 }
 
@@ -64,7 +64,7 @@ void MainWidget::paintGL()
 
     glClear(GL_COLOR_BUFFER_BIT);
     glDrawArrays(GL_QUADS, 0, 4);
-    program.release();
+    //program.release();
     //update();
 
 }
